@@ -1,0 +1,74 @@
+// Código fuente de la sección C 
+//Correcciones 
+
+//Creación de interface MétodoPago
+public interface MetodoPago {
+    void procesarPago(double monto);
+}
+
+//Clase Compra
+import java.util.List;
+
+public class Compra {
+    private MetodoPago metodoPago;
+    private List articulos;
+
+    public Compra (MetodoPago metodoPago){
+        // inicializaciones
+    }
+
+    public void agregarArticulo(Articulo articulo){
+        //agregar un articulo a la compra
+    }
+
+    public void removerArticulo(Articulo articulo){
+        //remover un articulo a la compra
+    }
+}
+
+//Interface Notificación
+public interface Notificacion {
+    void notificar(Pago pago);
+}
+
+// Clases de notificacion que implementan la interfaz notificación
+class NotificacionEmail implements Notificacion {
+    public void notificar(Pago pago) {
+        // lógica para enviar correo
+    }
+}
+
+class NotificacionSMS implements Notificacion {
+    public void notificar(Pago pago) {
+        // lógica para enviar SMS
+    }
+}
+
+//Clase ServiciosNotificación
+public class ServiciosNotificacion {
+    private Notificacion notificacion;
+
+    public ServiciosNotificacion(Notificacion notificacion){
+        this.notificacion = notificacion;
+    }
+
+    public void enviar(Pago pago){
+        notificacion.notificar(pago);
+    }
+}
+
+//Clase Calculadora Impuestos 
+public class CalculadoraImpuestos {
+    public double calcularImpuestos(double monto){
+        // lógica para calcular impuestos
+        return monto * 0.15;
+    }
+}
+
+//Clase factura
+public class Factura {
+    public void generar(double monto, double impuestos){
+        // generar y mostrar la factura
+    }
+}
+
