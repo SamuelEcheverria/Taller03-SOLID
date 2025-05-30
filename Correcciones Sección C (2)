@@ -1,0 +1,30 @@
+//Codigo de la sección C (Clase Pago, PagoPaypal y Pago Tarjeta)
+public abstract class Pago implements MetodoPago{
+
+    //atributos aqui
+    public void procesarPago(double monto) {
+    }
+
+    class PagoTajeta extends Pago{
+        @Override
+        public void procesarPago(double monto){
+            //Cobro con tarjeta...
+        }
+    }
+}
+
+//Clase PagoPaypal que extiende de Pago
+public class PagoPaypal extends Pago {
+    private boolean logIn;
+    private MetodoPago respaldo;
+
+    @Override
+    public void procesarPago(double monto) {
+        if(!logIn){
+            System.out.println("No se inció sesión en Paypal. Usano respaldo.");
+            respaldo.procesarPago(monto);
+        }else{
+            //realizando cobro
+        }
+    }
+}
